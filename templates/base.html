@@ -92,19 +92,22 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
-                <div class="logo">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Winorz Logo" style="height: 1.5rem; width: auto;">
-                    WINORZ
-                </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-discord"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fas fa-envelope"></i></a>
-                </div>
+            <!-- Logo Row -->
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Winorz Logo">
+                <span>WINORZ</span>
             </div>
-            <div class="footer-bottom">
+            
+            <!-- Social Links Row -->
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <!-- Copyright Row -->
+            <div class="footer-copyright">
                 <p>&copy; <span id="currentYear"></span> WINORZ. All rights reserved. Master every income stream.</p>
                 <script>
                     document.getElementById('currentYear').textContent = new Date().getFullYear();
