@@ -493,6 +493,27 @@
             color: var(--text-secondary);
         }
 
+        /* Second visual card with different styling */
+        .visual-card-second {
+            height: 230px;
+            min-width: 280px;
+            padding: 2.5rem 2rem !important;
+            animation: floatSecond 8s ease-in-out infinite !important;
+            animation-delay: 1.5s;
+            position: relative;
+            top: 3rem;
+            left: 2rem;
+        }
+
+        .visual-card-second:hover {
+            animation-play-state: paused;
+            transform: rotate(-2deg) translateX(2rem) translateY(3rem) scale(1.05) !important;
+        }
+
+        .visual-card-second i {
+            font-size: 3.5rem !important;
+        }
+
         /* Benefits Section */
         .benefits {
             padding: 6rem 2rem;
@@ -733,9 +754,11 @@
             border: 1px solid var(--border-color);
             border-radius: 1.5rem;
             padding: 2.5rem;
+            padding-bottom: 4rem;
             position: relative;
             transition: all 0.3s ease;
             text-align: center;
+            margin-bottom: 2rem;
         }
 
         .pricing-card:hover {
@@ -834,6 +857,11 @@
             justify-content: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
+            position: absolute;
+            bottom: 2.5rem;
+            left: 2.5rem;
+            right: 2.5rem;
+            width: calc(100% - 5rem);
         }
 
         .free-button {
@@ -1172,6 +1200,18 @@
             }
         }
 
+        @keyframes floatSecond {
+            0%, 100% {
+                transform: rotate(-5deg) translateY(0px);
+            }
+            33% {
+                transform: rotate(-5deg) translateY(-15px);
+            }
+            66% {
+                transform: rotate(-5deg) translateY(-8px);
+            }
+        }
+
         /* Footer Responsive Design */
         @media (max-width: 1024px) {
             .footer-container {
@@ -1297,6 +1337,12 @@
 
             .vault-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Reset second card positioning on mobile */
+            .visual-card-second {
+                top: 1rem;
+                left: 0;
             }
         }
 
