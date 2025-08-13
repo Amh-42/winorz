@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winorz - Turn Skills Into Focused Income</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Light mode colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --accent-primary: #0084FF;
+            --accent-secondary: #0066CC;
+            --accent-gradient: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
+            --success-color: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-primary: #0084FF;
+            --accent-secondary: #339FFF;
+            --accent-gradient: linear-gradient(135deg, #0084FF 0%, #339FFF 100%);
+            --success-color: #34d399;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            background-image: 
+                linear-gradient(rgba(0, 132, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 132, 255, 0.08) 1px, transparent 1px);
+            background-size: 16px 16px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        [data-theme="dark"] body {
+            background-image: 
+                linear-gradient(rgba(0, 132, 255, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 132, 255, 0.12) 1px, transparent 1px);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            border-radius: 50px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            position: absolute;
+            left: 2rem;
+        }
+
+        .logo i {
+            color: var(--accent-primary);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-primary);
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 0.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] .mobile-menu {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--accent-primary);
+            background: var(--bg-tertiary);
+            border-color: var(--border-color);
+        }
+
+        .mobile-cta {
+            margin-top: 1rem;
+            padding: 0 1rem;
+        }
+
+        .mobile-cta .cta-button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: absolute;
+            right: 2rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-primary);
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 2rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-button i {
+            color: #0084FF;
+        }
+
+        .cta-button:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #0084FF;
+        }
+
+        [data-theme="dark"] .cta-button {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .cta-button:hover {
+            background: var(--bg-secondary);
+            border-color: #0084FF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 2rem;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+                         background: radial-gradient(circle at 30% 20%, rgba(0, 132, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .compliance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--success-color);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .compliance-badge i {
+            font-size: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .visual-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .visual-card i {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .visual-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .visual-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .team-visual {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-svg {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover .team-svg {
+            transform: scale(1.05);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .elite-card {
+            border: 2px solid var(--accent-primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .pricing-icon {
+            width: 4rem;
+            height: 4rem;
+            background: var(--accent-gradient);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .pricing-icon i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .price {
+            margin-bottom: 2rem;
+        }
+
+        .currency {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .period {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .feature i {
+            color: var(--accent-primary);
+            font-size: 1rem;
+        }
+
+        .pricing-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .free-button {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .free-button:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-primary);
+        }
+
+        .elite-button {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .elite-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Intro Video Section */
+        .intro-video {
+            padding: 6rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .intro-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .intro-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .intro-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .intro-feature i {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+        }
+
+        .intro-video-wrapper {
+            position: relative;
+        }
+
+        .video-placeholder {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .play-button {
+            width: 4rem;
+            height: 4rem;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .play-button i {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 0.2rem;
+        }
+
+        .video-placeholder:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .video-overlay h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-overlay p {
+            color: var(--text-secondary);
+        }
+
+        /* Affiliate Vault Section */
+        .affiliate-vault {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .vault-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .vault-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vault-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .vault-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vault-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .vault-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .vault-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .vault-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .vault-category p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .vault-access {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .access-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .access-note i {
+            color: var(--accent-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-tertiary);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotate(3deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(3deg) translateY(-20px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .navbar {
+                width: 90%;
+                top: 20px;
+            }
+
+            .nav-container {
+                padding: 1rem;
+                justify-content: space-between;
+            }
+
+            .logo {
+                position: static;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .nav-actions {
+                position: static;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-actions .cta-button {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 2rem 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .elite-card {
+                transform: none;
+            }
+
+            .intro-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .vault-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-title,
+            .hero-subtitle {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title,
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .section-title,
+            .section-subtitle {
+                font-size: 2rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .loading:nth-child(1) { animation-delay: 0.1s; }
+        .loading:nth-child(2) { animation-delay: 0.2s; }
+        .loading:nth-child(3) { animation-delay: 0.3s; }
+        .loading:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-fire"></i>
+                winorz
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#benefits">Community</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Join</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#contact" class="cta-button">
+                    Join Discord
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#benefits">Community</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Join</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="#contact" class="cta-button">
+                    Join Discord
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="compliance-badge loading">
+                    <i class="fas fa-fire"></i>
+                    Anime Energy + Business Reality
+                </div>
+                <h1 class="hero-title loading">Turn Scattered Skills Into</h1>
+                <h1 class="hero-subtitle loading">Focused Income</h1>
+                <p class="hero-description loading">
+                    Anime-inspired mindset meets modern monetization. Join a community built by multi-skilled entrepreneurs who actually do the work—with structure, systems, and support, not just talk.
+                </p>
+                <div class="hero-actions loading">
+                    <a href="#contact" class="cta-button">
+                        Join Discord
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Be a Winner</h3>
+                    <p>Real entrepreneurs, real results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="benefits-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-users"></i>
+                    COMMUNITY
+                </div>
+                <h2 class="section-title">Free Discord Community</h2>
+                <h2 class="section-subtitle">Plus Paid Elite Access</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Free Discord Community</h3>
+                    <p>General chat, introductions, resources vault with free Notion boards, anime x business channel, and weekly public threads.</p>
+                </div>
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>WINORZ+ Elite Access</h3>
+                    <p>Private focus rooms (Build, Monetize, Grow), weekly execution challenges, monthly calls, and priority mentorship.</p>
+                </div>
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Monetization Systems</h3>
+                    <p>Step-by-step systems to turn your skills into income, with proven frameworks and DFY tools.</p>
+                </div>
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Affiliate Vault</h3>
+                    <p>Curated tool stack for YouTube, design, code, automation, and productivity with revenue share for contributors.</p>
+                </div>
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Community Wins</h3>
+                    <p>Showcase your achievements, celebrate milestones, and get inspired by other WINORZ making it happen.</p>
+                </div>
+                <div class="benefit-card loading">
+                    <div class="benefit-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Anime Energy</h3>
+                    <p>Bring that main character energy to your business journey with a community that gets the grind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="section-tag">
+                    <i class="fas fa-fire"></i>
+                    ABOUT WINORZ
+                </div>
+                <h2>Who we are</h2>
+                <p>We're multi-skilled entrepreneurs who've made the journey from developer to founder to guide. WINORZ was born from the realization that scattered skills need focused direction.</p>
+                <p>Your journey: <strong>developer → founder → guide</strong>. We've been where you are—juggling multiple skills, trying to turn them into consistent income, needing structure without the corporate BS.</p>
+                <p>Real results, no fluff. Anime energy meets business reality. We're the community that actually does the work and helps you do the same.</p>
+            </div>
+            <div class="about-image">
+                <div class="team-visual">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' class="team-svg">
+                        <rect width='400' height='300' fill='var(--bg-secondary)'/>
+                        <g transform='translate(200,150)'>
+                            <circle r='60' fill='var(--accent-primary)' opacity='0.1'/>
+                            <circle r='40' fill='var(--accent-primary)' opacity='0.2'/>
+                            <circle r='20' fill='var(--accent-primary)'/>
+                        </g>
+                        <text x='200' y='280' text-anchor='middle' fill='var(--text-secondary)' font-family='Inter' font-size='14'>WINORZ Community</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item loading">
+                <div class="stat-number">$99</div>
+                <div class="stat-label">Lifetime Access</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Community Members</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Success Stories</div>
+            </div>
+            <div class="stat-item loading">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Discord Active</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-crown"></i>
+                    PRICING
+                </div>
+                <h2 class="section-title">Choose Your Path</h2>
+                <h2 class="section-subtitle">Free Community or Elite Access</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card free-card loading">
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Free Community</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/forever</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            General Chat & Introductions
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Resources Vault (Free Notion boards)
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Anime x Business Channel
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Weekly Public Threads
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Community Wins & Showcases
+                        </div>
+                    </div>
+                    <a href="#contact" class="pricing-button free-button">
+                        Join Discord Free
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+                
+                <div class="pricing-card elite-card loading">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <div class="pricing-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>WINORZ+ Elite</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/lifetime</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Everything in Free Community
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Private Focus Rooms (Build, Monetize, Grow)
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Weekly Execution Challenges
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Monthly Calls (Q&A, Reviews)
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Step-by-Step Monetization Systems
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Affiliate Vault + DFY Tools
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Priority Mentorship & Support
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            Founders Badge Role
+                        </div>
+                    </div>
+                    <a href="#contact" class="pricing-button elite-button">
+                        Get Elite Access
+                        <i class="fas fa-crown"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Video Section -->
+    <section class="intro-video" id="intro">
+        <div class="intro-container">
+            <div class="intro-content">
+                <div class="section-tag">
+                    <i class="fab fa-youtube"></i>
+                    1 MINUTE INTRO
+                </div>
+                <h2>See Why WINORZ Exists</h2>
+                <p>Your journey: developer → founder → guide. Real results, no fluff — anime energy + business reality.</p>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Who we are & why WINORZ exists</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Real results from community members</span>
+                    </div>
+                    <div class="intro-feature">
+                        <i class="fas fa-fire"></i>
+                        <span>Anime energy meets business reality</span>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-video-wrapper">
+                <div class="video-placeholder">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-overlay">
+                        <h3>Watch the 1-Minute Intro</h3>
+                        <p>Discover your path to focused income</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Vault Section -->
+    <section class="affiliate-vault" id="vault">
+        <div class="vault-container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fas fa-link"></i>
+                    AFFILIATE VAULT
+                </div>
+                <h2 class="section-title">Curated Tool Stack</h2>
+                <h2 class="section-subtitle">Revenue Share for Contributors</h2>
+            </div>
+            <div class="vault-grid">
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube</h3>
+                    <p>Editing tools, analytics, optimization software for content creators</p>
+                </div>
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <p>Graphics, UI/UX tools, asset libraries for visual creators</p>
+                </div>
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Development</h3>
+                    <p>Coding tools, hosting, frameworks for developers</p>
+                </div>
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Automation</h3>
+                    <p>AI tools, workflow automation, productivity enhancers</p>
+                </div>
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <p>Email tools, social media, analytics for growth</p>
+                </div>
+                <div class="vault-category loading">
+                    <div class="vault-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Productivity</h3>
+                    <p>Project management, note-taking, organization tools</p>
+                </div>
+            </div>
+            <div class="vault-access">
+                <div class="access-note">
+                    <i class="fas fa-crown"></i>
+                    <span>Vault access exclusive to WINORZ+ Elite members</span>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="courses.html" class="cta-button" style="display: inline-flex;">
+                        View All Courses
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-fire"></i>
+                    WINORZ
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WINORZ. All rights reserved. Turn your scattered skills into focused income.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe loading elements
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = mobileMenuToggle.querySelector('i');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            
+            // Toggle hamburger icon
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuIcon.className = 'fas fa-times';
+            } else {
+                mobileMenuIcon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav-links a, .mobile-cta a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.className = 'fas fa-bars';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.className = 'fas fa-bars';
+            }
+        });
+
+        // Navbar glass effect enhancement on scroll
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Enhance glass effect based on scroll position
+            if (scrollTop > 50) {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(15, 23, 42, 0.15)' 
+                    : 'rgba(255, 255, 255, 0.15)';
+                navbar.style.backdropFilter = 'blur(25px) saturate(200%)';
+            } else {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(15, 23, 42, 0.08)' 
+                    : 'rgba(255, 255, 255, 0.08)';
+                navbar.style.backdropFilter = 'blur(20px) saturate(180%)';
+            }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.benefit-card, .stat-item').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.dataset.suffix || '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.dataset.suffix || '');
+                }
+            }, 30);
+        };
+
+        // Initialize counter animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(number => {
+                        const text = number.textContent;
+                        
+                        // Special handling for non-numeric values
+                        if (text === '24/7' || text.includes('$')) {
+                            // Don't animate text/currency values, just keep them as is
+                            return;
+                        }
+                        
+                        const value = parseInt(text.replace(/\D/g, ''));
+                        const suffix = text.replace(/\d/g, '');
+                        number.dataset.suffix = suffix;
+                        animateCounter(number, value);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            const heroVisual = document.querySelector('.hero-visual');
+            
+            if (hero && scrolled < hero.offsetHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                heroVisual.style.transform = `translateY(${scrolled * 0.2}px) rotate(${3 + scrolled * 0.01}deg)`;
+            }
+        });
+
+        // Add loading animation on page load
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Trigger loading animations
+            document.querySelectorAll('.loading').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Add interactive button effects
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-3px) scale(1.05)';
+                button.style.boxShadow = 'var(--shadow-xl)';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0) scale(1)';
+                button.style.boxShadow = 'var(--shadow-md)';
+            });
+        });
+    </script>
+</body>
+</html>

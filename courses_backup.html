@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINORZ Courses - Master Money-Making Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Light mode colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --accent-primary: #0084FF;
+            --accent-secondary: #0066CC;
+            --accent-gradient: linear-gradient(135deg, #0084FF 0%, #0066CC 100%);
+            --success-color: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-primary: #0084FF;
+            --accent-secondary: #339FFF;
+            --accent-gradient: linear-gradient(135deg, #0084FF 0%, #339FFF 100%);
+            --success-color: #34d399;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            background-image: 
+                linear-gradient(rgba(0, 132, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 132, 255, 0.08) 1px, transparent 1px);
+            background-size: 16px 16px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        [data-theme="dark"] body {
+            background-image: 
+                linear-gradient(rgba(0, 132, 255, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 132, 255, 0.12) 1px, transparent 1px);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            border-radius: 50px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            position: absolute;
+            left: 2rem;
+        }
+
+        .logo i {
+            color: var(--accent-primary);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: absolute;
+            right: 2rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-primary);
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 2rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-button i {
+            color: #0084FF;
+        }
+
+        .cta-button:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #0084FF;
+        }
+
+        [data-theme="dark"] .cta-button {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .cta-button:hover {
+            background: var(--bg-secondary);
+            border-color: #0084FF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 132, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .courses-showcase {
+            position: relative;
+            width: 400px;
+            height: 350px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            position: absolute;
+            width: 160px;
+            height: 140px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center;
+            will-change: transform;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .course-card:visited {
+            color: inherit;
+        }
+
+        .beginner-card {
+            top: 10px;
+            left: 0px;
+            transform: rotate(-8deg);
+            animation: float1 7s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        .intermediate-card {
+            top: 30px;
+            right: 0px;
+            transform: rotate(12deg);
+            animation: float2 6s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .advanced-card {
+            bottom: 60px;
+            left: 30px;
+            transform: rotate(5deg);
+            animation: float3 8s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .elite-card {
+            bottom: 10px;
+            right: 30px;
+            transform: rotate(-15deg);
+            animation: float4 5.5s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        .beginner-card::before {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+
+        .intermediate-card::before {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+        }
+
+        .advanced-card::before {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+        }
+
+        .elite-card::before {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+        }
+
+        .course-card:hover {
+            transform: translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-primary);
+            animation-play-state: paused;
+        }
+
+        .beginner-card:hover {
+            transform: rotate(-8deg) translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(0, 132, 255, 0.25);
+        }
+
+        .intermediate-card:hover {
+            transform: rotate(12deg) translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.25);
+        }
+
+        .advanced-card:hover {
+            transform: rotate(5deg) translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(245, 158, 11, 0.25);
+        }
+
+        .elite-card:hover {
+            transform: rotate(-15deg) translateY(-15px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(168, 85, 247, 0.25);
+        }
+
+        .course-card:active {
+            transform: scale(0.95);
+            transition: all 0.1s ease;
+        }
+
+        .beginner-card:active {
+            transform: rotate(-8deg) scale(0.95);
+        }
+
+        .intermediate-card:active {
+            transform: rotate(12deg) scale(0.95);
+        }
+
+        .advanced-card:active {
+            transform: rotate(5deg) scale(0.95);
+        }
+
+        .elite-card:active {
+            transform: rotate(-15deg) scale(0.95);
+        }
+
+        /* Ripple effect for clicks */
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 132, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced cursor interaction */
+        .courses-showcase {
+            perspective: 1000px;
+        }
+
+
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+        }
+
+        .beginner-card .card-icon {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+
+        .intermediate-card .card-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+        }
+
+        .advanced-card .card-icon {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+        }
+
+        .elite-card .card-icon {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+        }
+
+        .card-icon i {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .course-card h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .course-card p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Courses Grid */
+        .courses {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .courses-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-tier {
+            margin-bottom: 6rem;
+        }
+
+        .tier-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-badge.beginner {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+        }
+
+        .tier-badge.intermediate {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+        }
+
+        .tier-badge.advanced {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            color: white;
+        }
+
+        .tier-badge.elite {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: white;
+        }
+
+        .tier-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .tier-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .course-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .course-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .course-skills {
+            list-style: none;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item i {
+            color: var(--accent-primary);
+            font-size: 0.875rem;
+            width: 1rem;
+        }
+
+        .premium-course {
+            border: 2px solid var(--accent-primary);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(0, 132, 255, 0.05) 100%);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-tertiary);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .navbar {
+                width: 90%;
+                top: 20px;
+            }
+
+            .nav-container {
+                padding: 1rem;
+                justify-content: space-between;
+            }
+
+            .logo {
+                position: static;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .nav-actions {
+                position: static;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-title,
+            .hero-subtitle {
+                font-size: 2.5rem;
+            }
+
+            .courses-showcase {
+                width: 350px;
+                height: 300px;
+                margin: 0 auto;
+            }
+
+            .advanced-card {
+                bottom: 50px;
+                left: 25px;
+            }
+
+            .elite-card {
+                bottom: 5px;
+                right: 25px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title,
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float1 {
+            0%, 100% {
+                transform: rotate(-8deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(-8deg) translateY(-15px);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: rotate(12deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(12deg) translateY(-20px);
+            }
+        }
+
+        @keyframes float3 {
+            0%, 100% {
+                transform: rotate(5deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(5deg) translateY(-12px);
+            }
+        }
+
+        @keyframes float4 {
+            0%, 100% {
+                transform: rotate(-15deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(-15deg) translateY(-18px);
+            }
+        }
+
+        .loading {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .loading:nth-child(1) { animation-delay: 0.1s; }
+        .loading:nth-child(2) { animation-delay: 0.2s; }
+        .loading:nth-child(3) { animation-delay: 0.3s; }
+        .loading:nth-child(4) { animation-delay: 0.4s; }
+        .loading:nth-child(5) { animation-delay: 0.5s; }
+        .loading:nth-child(6) { animation-delay: 0.6s; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-fire"></i>
+                WINORZ
+            </a>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#contact">Join</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="index.html#contact" class="cta-button">
+                    Join Discord
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    MONEY-MAKING COURSES
+                </div>
+                <h1 class="hero-title">Master Every</h1>
+                <h1 class="hero-subtitle">Income Stream</h1>
+                <p class="hero-description">
+                    From agencies to crypto trading, content creation to e-commerce - learn the skills that actually make money in today's digital economy.
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="courses-showcase">
+                    <a href="#beginner" class="course-card beginner-card">
+                        <div class="card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Beginner</h4>
+                        <p>Start Today</p>
+                    </a>
+                    <a href="#intermediate" class="course-card intermediate-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Intermediate</h4>
+                        <p>Build Skills</p>
+                    </a>
+                    <a href="#advanced" class="course-card advanced-card">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Advanced</h4>
+                        <p>Scale Up</p>
+                    </a>
+                    <a href="#elite" class="course-card elite-card">
+                        <div class="card-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4>Elite</h4>
+                        <p>Master Level</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+        <div class="courses-container">
+            <!-- Beginner Level -->
+            <div class="course-tier" id="beginner">
+                <div class="tier-header">
+                    <div class="tier-badge beginner">
+                        <i class="fas fa-seedling"></i>
+                        BEGINNER
+                    </div>
+                    <h2>Start Your Journey</h2>
+                    <p>Ground-level strategies anyone can start today</p>
+                </div>
+                <div class="courses-grid">
+                    <!-- Hustling -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3 class="course-title">Hustling</h3>
+                        </div>
+                        <p class="course-description">Ground-level money-making strategies that anyone can start today.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Car Detailing & Mobile Services</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Pet Services & Dog Walking</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Flipping Products & Arbitrage</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Local Service Businesses</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Freelancing -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3 class="course-title">Freelancing</h3>
+                        </div>
+                        <p class="course-description">Turn your skills into a profitable freelance business with high-paying clients.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Client Acquisition & Retention</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Pricing Strategies & Value-Based Selling</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Project Management & Delivery</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Scaling to Agency Model</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Fitness -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3 class="course-title">Fitness</h3>
+                        </div>
+                        <p class="course-description">Turn your passion for fitness into a profitable coaching and content business.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Online Personal Training</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Fitness Content Creation</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Supplement & Product Promotion</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Building Fitness Communities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intermediate Level -->
+            <div class="course-tier" id="intermediate">
+                <div class="tier-header">
+                    <div class="tier-badge intermediate">
+                        <i class="fas fa-chart-line"></i>
+                        INTERMEDIATE
+                    </div>
+                    <h2>Build Your Skills</h2>
+                    <p>Scalable income streams with proven systems</p>
+                </div>
+                <div class="courses-grid">
+                    <!-- Content Creation -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3 class="course-title">Content Creation</h3>
+                        </div>
+                        <p class="course-description">Master the art of creating engaging content that converts viewers into customers.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Video Editing & Post-Production</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Graphic Design & Visual Branding</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Content Strategy & Planning</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Monetization Techniques</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <h3 class="course-title">Social Media</h3>
+                        </div>
+                        <p class="course-description">Dominate every platform and build massive followings that generate real income.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>YouTube Channel Growth & Monetization</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>TikTok Viral Content & Creator Fund</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Instagram Business & Influencer Marketing</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>LinkedIn Personal Branding & B2B</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Copywriting -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <h3 class="course-title">Copywriting</h3>
+                        </div>
+                        <p class="course-description">Master the art of persuasive writing that sells products and builds brands.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Sales Copy & Email Marketing</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Landing Pages & Conversion Optimization</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Ad Copy & Social Media Content</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Psychology of Persuasion</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- E-Commerce -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3 class="course-title">E-Commerce</h3>
+                        </div>
+                        <p class="course-description">Build profitable online stores and master affiliate marketing strategies.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Shopify Store Setup & Optimization</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Product Research & Sourcing</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Affiliate Marketing & Link Monetization</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Customer Acquisition & Retention</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Level -->
+            <div class="course-tier" id="advanced">
+                <div class="tier-header">
+                    <div class="tier-badge advanced">
+                        <i class="fas fa-rocket"></i>
+                        ADVANCED
+                    </div>
+                    <h2>Scale & Dominate</h2>
+                    <p>High-value skills for serious entrepreneurs</p>
+                </div>
+                <div class="courses-grid">
+                    <!-- Agency -->
+                    <div class="course-category premium-course loading">
+                        <div class="premium-badge">Premium</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="course-title">Agency</h3>
+                        </div>
+                        <p class="course-description">Build and scale profitable agencies with proven systems and frameworks.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>SMMA (Social Media Marketing Agency)</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Paid Advertising & Campaign Management</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Copywriting & Sales Funnels</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Creative Agency & Brand Development</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Consulting -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="course-title">Consulting</h3>
+                        </div>
+                        <p class="course-description">Package your expertise into high-value consulting services and command premium rates.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Positioning & Niche Selection</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>High-Ticket Sales & Proposals</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Delivery Frameworks & Methodologies</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Building Authority & Thought Leadership</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Crypto Trading -->
+                    <div class="course-category premium-course loading">
+                        <div class="premium-badge">Advanced</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fab fa-bitcoin"></i>
+                            </div>
+                            <h3 class="course-title">Crypto Trading</h3>
+                        </div>
+                        <p class="course-description">Learn professional trading strategies and risk management in the crypto markets.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Technical Analysis & Chart Reading</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Risk Management & Portfolio Theory</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>DeFi Strategies & Yield Farming</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Market Psychology & Trading Mindset</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elite Level -->
+            <div class="course-tier" id="elite">
+                <div class="tier-header">
+                    <div class="tier-badge elite">
+                        <i class="fas fa-crown"></i>
+                        ELITE
+                    </div>
+                    <h2>Master Level</h2>
+                    <p>Elite strategies for building wealth and legacy</p>
+                </div>
+                <div class="courses-grid">
+                    <!-- Business Mastery -->
+                    <div class="course-category premium-course loading">
+                        <div class="premium-badge">Elite</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="course-title">Business Mastery</h3>
+                        </div>
+                        <p class="course-description">Advanced business strategies for scaling and systemizing profitable ventures.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Business Model Innovation</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Team Building & Leadership</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Financial Management & Growth</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Exit Strategies & Acquisitions</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Finance -->
+                    <div class="course-category loading">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3 class="course-title">Finance</h3>
+                        </div>
+                        <p class="course-description">Master personal and business finance to build lasting wealth and financial freedom.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Investment Strategies & Portfolio Management</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Tax Optimization & Legal Structures</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Cash Flow Management & Budgeting</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Passive Income Streams</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Headquarters V2 -->
+                    <div class="course-category premium-course loading">
+                        <div class="premium-badge">Next Level</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-building-flag"></i>
+                            </div>
+                            <h3 class="course-title">Headquarters V2</h3>
+                        </div>
+                        <p class="course-description">The ultimate level-up course for those ready to take the next step in their journey.</p>
+                        <ul class="course-skills">
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Next Step Strategy Development</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Level Up Mindset & Execution</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Elite Network Access</span>
+                            </li>
+                            <li class="skill-item">
+                                <i class="fas fa-check"></i>
+                                <span>Legacy Building Systems</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Course Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Skill Modules</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Success Stories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Community Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-fire"></i>
+                    WINORZ
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WINORZ. All rights reserved. Master every income stream.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Course card physics effects
+        const courseCards = document.querySelectorAll('.course-card');
+        const coursesShowcase = document.querySelector('.courses-showcase');
+        let isMouseInside = false;
+
+        coursesShowcase.addEventListener('mouseenter', () => {
+            isMouseInside = true;
+        });
+
+        coursesShowcase.addEventListener('mouseleave', () => {
+            isMouseInside = false;
+            // Reset all cards to their original positions
+            courseCards.forEach(card => {
+                card.style.transform = '';
+            });
+        });
+
+        coursesShowcase.addEventListener('mousemove', (e) => {
+            if (!isMouseInside) return;
+
+            const rect = coursesShowcase.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            courseCards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenterX = cardRect.left + cardRect.width / 2 - rect.left;
+                const cardCenterY = cardRect.top + cardRect.height / 2 - rect.top;
+
+                const deltaX = mouseX - cardCenterX;
+                const deltaY = mouseY - cardCenterY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                // Magnetic effect when cursor is close
+                if (distance < 100) {
+                    const force = (100 - distance) / 100;
+                    const moveX = deltaX * force * 0.3;
+                    const moveY = deltaY * force * 0.3;
+                    
+                    // Get original rotation from classes
+                    let originalRotation = 0;
+                    if (card.classList.contains('beginner-card')) originalRotation = -8;
+                    else if (card.classList.contains('intermediate-card')) originalRotation = 12;
+                    else if (card.classList.contains('advanced-card')) originalRotation = 5;
+                    else if (card.classList.contains('elite-card')) originalRotation = -15;
+
+                    // Apply magnetic movement with slight rotation
+                    const rotationModifier = (moveX / 50) * 5; // Slight tilt based on movement
+                    card.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${originalRotation + rotationModifier}deg) scale(${1 + force * 0.1})`;
+                } else {
+                    card.style.transform = '';
+                }
+            });
+        });
+
+        // Add click ripple effect and navigation
+        courseCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple');
+                
+                const rect = card.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                card.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+
+                // Smooth navigation to target section
+                const href = card.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Add a small delay for ripple effect to be visible
+                        setTimeout(() => {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 200);
+                    }
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Loading animations
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.loading').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
