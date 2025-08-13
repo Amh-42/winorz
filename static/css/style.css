@@ -1401,6 +1401,259 @@
             }
         }
 
+        @media (max-width: 525px) and (min-width: 426px) {
+            /* Fix hero section for medium-small screens */
+            .hero {
+                padding: 3rem 0.75rem !important;
+            }
+
+            .hero-container {
+                gap: 1rem !important;
+                padding: 0 !important;
+            }
+
+            .hero-title,
+            .hero-subtitle {
+                font-size: 1.6rem !important;
+                line-height: 1.1 !important;
+                word-wrap: break-word !important;
+            }
+
+            .hero-description {
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+                padding: 0 0.5rem !important;
+            }
+
+            /* Fix floating cards for medium-small screens */
+            .hero-visual {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+                width: 100% !important;
+                overflow: hidden !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .visual-card {
+                width: 85% !important;
+                max-width: 220px !important;
+                padding: 1.2rem 0.8rem !important;
+                transform: none !important;
+                animation: none !important;
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                box-sizing: border-box !important;
+            }
+
+            .visual-card-second {
+                width: 80% !important;
+                max-width: 200px !important;
+                height: auto !important;
+                min-width: auto !important;
+                padding: 1.1rem 0.7rem !important;
+                transform: none !important;
+                animation: none !important;
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                box-sizing: border-box !important;
+            }
+
+            .visual-card i,
+            .visual-card-second i {
+                font-size: 2.2rem !important;
+            }
+
+            .visual-card h3,
+            .visual-card-second h3 {
+                font-size: 1.1rem !important;
+            }
+
+            .visual-card p,
+            .visual-card-second p {
+                font-size: 0.8rem !important;
+            }
+
+            /* Fix community buttons */
+            .hero-actions {
+                flex-direction: column !important;
+                gap: 0.6rem !important;
+                padding: 0 0.75rem !important;
+            }
+
+            .hero-actions .cta-button {
+                width: 100% !important;
+                max-width: 280px !important;
+                padding: 0.75rem 1.2rem !important;
+                font-size: 0.9rem !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Container overflow protection */
+            .hero-container {
+                max-width: 100% !important;
+                overflow: hidden !important;
+            }
+
+            .hero-content {
+                max-width: 100% !important;
+                overflow: hidden !important;
+            }
+        }
+
+        @media (max-width: 425px) {
+            /* Drastically reduce hero section for very small screens */
+            .hero {
+                padding: 2rem 0.5rem !important;
+            }
+
+            .hero-container {
+                gap: 0.75rem !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .hero-title,
+            .hero-subtitle {
+                font-size: 1.4rem !important;
+                line-height: 1 !important;
+                word-wrap: break-word !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .hero-description {
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
+                text-align: center !important;
+                padding: 0 0.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .compliance-badge {
+                font-size: 0.7rem !important;
+                padding: 0.3rem 0.6rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            /* Fix floating cards for small screens */
+            .hero-visual {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: hidden !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .visual-card {
+                width: 80% !important;
+                max-width: 180px !important;
+                min-width: auto !important;
+                margin: 0 auto !important;
+                padding: 0.8rem 0.6rem !important;
+                transform: none !important;
+                animation: none !important;
+                position: static !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                box-sizing: border-box !important;
+                height: auto !important;
+            }
+
+            .visual-card-second {
+                width: 75% !important;
+                max-width: 160px !important;
+                height: auto !important;
+                min-width: auto !important;
+                padding: 0.7rem 0.5rem !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: none !important;
+                animation: none !important;
+                position: static !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+            }
+
+            .visual-card i,
+            .visual-card-second i {
+                font-size: 1.8rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .visual-card h3,
+            .visual-card-second h3 {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+
+            .visual-card p,
+            .visual-card-second p {
+                font-size: 0.7rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Fix community buttons */
+            .hero-actions {
+                flex-direction: column !important;
+                width: 100% !important;
+                gap: 0.5rem !important;
+                padding: 0 0.5rem !important;
+                margin: 1rem 0 !important;
+            }
+
+            .hero-actions .cta-button {
+                width: 100% !important;
+                max-width: 250px !important;
+                margin: 0 auto !important;
+                padding: 0.6rem 1rem !important;
+                font-size: 0.8rem !important;
+                text-align: center !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Ensure container doesn't overflow */
+            .hero-container {
+                max-width: 100% !important;
+                width: 100% !important;
+                overflow: hidden !important;
+                padding: 0 0.5rem !important;
+                box-sizing: border-box !important;
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-content {
+                max-width: 100% !important;
+                width: 100% !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            /* Additional overflow protection */
+            .hero {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            body {
+                overflow-x: hidden !important;
+            }
+        }
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
