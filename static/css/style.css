@@ -1128,22 +1128,34 @@
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
+            padding: 0 2rem;
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
             margin-bottom: 2rem;
             gap: 1.5rem;
+        }
+
+        /* Ensure social icons stay on the right for all large screens */
+        @media (min-width: 769px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .social-links {
+                margin-left: auto;
+            }
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             align-items: center;
         }
 
@@ -1343,6 +1355,22 @@
             .visual-card-second {
                 top: 1rem;
                 left: 0;
+            }
+
+            /* Center footer content on mobile */
+            .footer-container {
+                text-align: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
 
