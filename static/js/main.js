@@ -46,15 +46,18 @@ function updateThemeIcon(theme) {
     }
 }
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links with navbar offset
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const navbarHeight = 120; // Fixed navbar height + top position + padding
+            const targetPosition = target.offsetTop - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });

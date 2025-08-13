@@ -42,6 +42,11 @@
             box-sizing: border-box;
         }
 
+        /* Fix for anchor links being hidden behind fixed navbar */
+        html {
+            scroll-padding-top: 120px; /* Accounts for navbar height + top position + some padding */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
@@ -968,9 +973,12 @@
 
         .vault-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .vault-category {
@@ -1262,7 +1270,7 @@
             }
 
             .vault-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1285,6 +1293,10 @@
 
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vault-grid {
+                grid-template-columns: 1fr;
             }
         }
 
