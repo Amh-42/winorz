@@ -513,12 +513,14 @@
         .visual-card-second {
             height: 230px;
             min-width: 280px;
+            max-width: 350px;
             padding: 2.5rem 2rem !important;
             animation: floatSecond 8s ease-in-out infinite !important;
             animation-delay: 1.5s;
             position: relative;
             top: 3rem;
             left: 2rem;
+            box-sizing: border-box;
         }
 
         .visual-card-second:hover {
