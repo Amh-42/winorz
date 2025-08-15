@@ -40,7 +40,7 @@ landing/
 
 1. **Clone or navigate to the project directory**
    ```bash
-   cd landing
+   cd winorz
    ```
 
 2. **Install Python dependencies**
@@ -160,3 +160,4 @@ The application uses Flask's built-in development server. For production deploym
 ## License
 
 All rights reserved. WINORZ 2024.
+
