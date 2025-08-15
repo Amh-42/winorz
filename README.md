@@ -159,5 +159,6 @@ The application uses Flask's built-in development server. For production deploym
 
 ## License
 
-All rights reserved. WINORZ 2024.
+All rights reserved. WINORZ 2025.
+
 
