@@ -1,26 +1,24 @@
-// Theme toggle functionality
+// Modern Theme Toggle functionality
 const themeToggle = document.getElementById('themeToggle');
 const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 const body = document.body;
-const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
-const mobileThemeIcon = mobileThemeToggle ? mobileThemeToggle.querySelector('i') : null;
-const mobileThemeText = mobileThemeToggle ? mobileThemeToggle.querySelector('span') : null;
+const mobileThemeLabel = document.querySelector('.mobile-theme-label');
 
 // Check for saved theme preference or default to light mode
 const currentTheme = localStorage.getItem('theme') || 'light';
 body.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
+updateThemeToggle(currentTheme);
 
 // Desktop theme toggle
 if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('change', () => {
         toggleTheme();
     });
 }
 
 // Mobile theme toggle
 if (mobileThemeToggle) {
-    mobileThemeToggle.addEventListener('click', () => {
+    mobileThemeToggle.addEventListener('change', () => {
         toggleTheme();
     });
 }
@@ -31,18 +29,23 @@ function toggleTheme() {
     
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
+    updateThemeToggle(newTheme);
 }
 
-function updateThemeIcon(theme) {
-    if (theme === 'dark') {
-        if (themeIcon) themeIcon.className = 'fas fa-sun';
-        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun';
-        if (mobileThemeText) mobileThemeText.textContent = 'Light Mode';
-    } else {
-        if (themeIcon) themeIcon.className = 'fas fa-moon';
-        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
-        if (mobileThemeText) mobileThemeText.textContent = 'Dark Mode';
+function updateThemeToggle(theme) {
+    const isDark = theme === 'dark';
+    
+    // Update checkboxes
+    if (themeToggle) {
+        themeToggle.checked = isDark;
+    }
+    if (mobileThemeToggle) {
+        mobileThemeToggle.checked = isDark;
+    }
+    
+    // Update mobile label text
+    if (mobileThemeLabel) {
+        mobileThemeLabel.textContent = isDark ? 'Light Mode' : 'Dark Mode';
     }
 }
 

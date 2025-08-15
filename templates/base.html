@@ -43,9 +43,19 @@
             </div>
 
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <div class="theme-toggle-container">
+                    <input type="checkbox" id="themeToggle" class="theme-toggle-input">
+                    <label for="themeToggle" class="theme-toggle-label">
+                        <span class="theme-toggle-slider">
+                            <span class="theme-toggle-icon sun">
+                                <i class="fas fa-sun"></i>
+                            </span>
+                            <span class="theme-toggle-icon moon">
+                                <i class="fas fa-moon"></i>
+                            </span>
+                        </span>
+                    </label>
+                </div>
                 <a href="#" class="cta-button discord-button">
                     Join Discord
                     <i class="fab fa-discord"></i>
@@ -68,10 +78,22 @@
                     <li><a href="{{ url_for('courses') }}">Courses</a></li>
                 </ul>
                 <div class="mobile-theme-toggle">
-                    <button class="theme-toggle mobile-theme-btn" id="mobileThemeToggle">
-                        <i class="fas fa-moon"></i>
-                        <span>Dark Mode</span>
-                    </button>
+                    <div class="mobile-theme-toggle-container">
+                        <span class="mobile-theme-label">Dark Mode</span>
+                        <div class="mobile-theme-toggle-wrapper">
+                            <input type="checkbox" id="mobileThemeToggle" class="theme-toggle-input mobile">
+                            <label for="mobileThemeToggle" class="theme-toggle-label mobile">
+                                <span class="theme-toggle-slider mobile">
+                                    <span class="theme-toggle-icon sun">
+                                        <i class="fas fa-sun"></i>
+                                    </span>
+                                    <span class="theme-toggle-icon moon">
+                                        <i class="fas fa-moon"></i>
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="mobile-cta">
                     <a href="#" class="cta-button discord-button">
